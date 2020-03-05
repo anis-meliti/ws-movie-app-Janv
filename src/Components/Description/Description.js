@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
 });
 const Description = props => {
   console.log('props', props.match.params.id);
+  //eslint-disable-next-line
   const [trailer] = props.trailer.filter(el => el.id == props.match.params.id);
   console.log('trailer', trailer);
   return (

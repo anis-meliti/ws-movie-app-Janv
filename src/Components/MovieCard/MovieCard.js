@@ -20,31 +20,31 @@ class MovieCard extends React.Component {
     const { title, poster, rating, id } = this.props.movie;
     return (
       <>
-        <Link to={`/description/${id}`}>
-          <Card style={{ width: '20rem' }}>
+        <Card style={{ width: '20rem' }}>
+          <Link to={`/description/${id}`}>
             <CardImg top src={poster} alt={title} className='Card' />
-            <CardBody>
-              <CardTitle>
-                <h6 className='title'> {title}</h6>
-              </CardTitle>
-              <Rating count={rating} />
-              <Button
-                className='btn-round'
-                color='outline-primary'
-                onClick={this.toggle}
-              >
-                Edit
-              </Button>
-              <Button
-                className='btn-round'
-                color='outline-danger'
-                onClick={() => this.props.deleteMovie(id)}
-              >
-                Delete
-              </Button>
-            </CardBody>
-          </Card>
-        </Link>
+          </Link>
+          <CardBody>
+            <CardTitle>
+              <h6 className='title'> {title}</h6>
+            </CardTitle>
+            <Rating count={rating} />
+            <Button
+              className='btn-round'
+              color='outline-primary'
+              onClick={this.toggle}
+            >
+              Edit
+            </Button>
+            <Button
+              className='btn-round'
+              color='outline-danger'
+              onClick={() => this.props.deleteMovie(id)}
+            >
+              Delete
+            </Button>
+          </CardBody>
+        </Card>
         {this.state.isOpen && (
           <ModalComp
             isOpen={this.state.isOpen}

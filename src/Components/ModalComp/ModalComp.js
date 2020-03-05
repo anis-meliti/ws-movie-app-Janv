@@ -19,6 +19,7 @@ class ModalComp extends Component {
   componentDidMount() {
     this.props.movie &&
       this.setState({
+        id: this.props.movie.id,
         title: this.props.movie.title,
         poster: this.props.movie.poster,
         rating: this.props.movie.rating
