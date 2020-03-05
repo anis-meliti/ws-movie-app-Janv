@@ -1,7 +1,9 @@
 import {
   SEARCH_INPUT,
   RATING_SEARCH,
-  DELETE_MOVIE
+  DELETE_MOVIE,
+  ADD_MOVIE,
+  EDIT_MOVIE
 } from '../Constants/actions-types';
 
 const initialState = {
@@ -60,6 +62,20 @@ const movieReducer = (state = initialState, { type, payload }) => {
         ...state,
         //eslint-disable-next-line
         movieList: state.movieList.filter(el => el.id != payload)
+      };
+    case ADD_MOVIE:
+      return {
+        ...state,
+        //eslint-disable-next-line
+        movieList: [...state.movieList, payload]
+      };
+    case EDIT_MOVIE:
+      return {
+        ...state,
+        //eslint-disable-next-line
+        movieList: state.movieList.map(el =>
+          el.id === payload.id ? payload : el
+        )
       };
 
     default:
